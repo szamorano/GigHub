@@ -183,8 +183,14 @@
     <Compile Include="Migrations\202104290352273_InitialModel.Designer.cs">
       <DependentUpon>202104290352273_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104300356209_CreateGigTable.cs" />
+    <Compile Include="Migrations\202104300356209_CreateGigTable.Designer.cs">
+      <DependentUpon>202104300356209_CreateGigTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Gig.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -266,6 +272,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104290352273_InitialModel.resx">
       <DependentUpon>202104290352273_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104300356209_CreateGigTable.resx">
+      <DependentUpon>202104300356209_CreateGigTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
