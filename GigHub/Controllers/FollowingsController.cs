@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using GigHub.Models;
+using Microsoft.AspNet.Identity;
+using System.Linq;
 using System.Web.Http;
 
-namespace GigHub.Controllers
+namespace GigHub.Dtos
 {
     public class FollowingsController : ApiController
     {
@@ -30,4 +32,5 @@ namespace GigHub.Controllers
 
             return Ok();
         }
+    }
 }
