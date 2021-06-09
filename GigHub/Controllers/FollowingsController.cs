@@ -5,13 +5,14 @@ using System.Web.Http;
 
 namespace GigHub.Dtos
 {
+    [Authorize]
     public class FollowingsController : ApiController
     {
-        private ApplicationDbContext _context;
+        private ApplicationDbContext _db;
 
         public FollowingsController()
         {
-            _context = new ApplicationDbContext();
+            _db = new ApplicationDbContext();
         }
 
         [HttpPost]
@@ -19,7 +20,7 @@ namespace GigHub.Dtos
         {
             var userId = User.Identity.GetUserId();
 
-            if (_context.Followings.Any(f => f.FolloweeId == userId && f.FolloweeId == dto.FolloweeId))
+            if (_db.Followings.Any(f => f.FolloweeId == userId && f.FolloweeId == dto.FolloweeId))
                 return BadRequest("Following already exists.");
 
             var following = new Following
@@ -27,8 +28,8 @@ namespace GigHub.Dtos
                 FollowerId = userId,
                 FolloweeId = dto.FolloweeId
             };
-            _context.Followings.Add(following);
-            _context.SaveChanges();
+            _db.Followings.Add(following);
+            _db.SaveChanges();
 
             return Ok();
         }
