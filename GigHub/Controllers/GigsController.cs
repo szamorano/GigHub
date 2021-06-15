@@ -88,7 +88,7 @@ namespace GigHub.Controllers
             _db.Gigs.Add(gig);
             _db.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Mine", "Gigs");
         }
     }
 }
