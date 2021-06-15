@@ -125,3 +125,25 @@ form-control {
     top: 0;
     left: 70px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.gigs > li .actions {
+    font-size: 15px;
+    display: none;
+}
+
+.gigs > li:hover .actions {
+    display: block;
+}
