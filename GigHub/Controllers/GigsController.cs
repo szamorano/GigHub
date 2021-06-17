@@ -75,6 +75,7 @@ namespace GigHub.Controllers
             var viewModel = new GigFormViewModel
             {
                 Heading = "Edit a Gig",
+                Id = gig.Id,
                 Genres = _db.Genres.ToList(),
                 Date = gig.DateTime.ToString("MMM d yyyy"),
                 Time = gig.DateTime.ToString("HH:mm"),
