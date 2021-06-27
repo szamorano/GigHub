@@ -20,6 +20,10 @@ namespace GigHub.Controllers.Api
         {
             var userId = User.Identity.GetUserId();
             var gig = _db.Gigs.Single(g => g.Id == id && g.ArtistId == userId);
+
+            if (gig.IsCanceled)
+                return NotFound();
+
             gig.IsCanceled = true;
             _db.SaveChanges();
 
