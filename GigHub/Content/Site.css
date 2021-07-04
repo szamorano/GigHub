@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 90px;
     padding-bottom: 20px;
 }
 
@@ -60,24 +60,40 @@ span.field-validation-error {
     -webkit-box-shadow: none;
 }
 
-.navbar-brand {
-    font-weight: 700;
+body {
+    font-size: 17px;
 }
 
-body {
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
     font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: inherit;
+}
+
+
+.navbar-brand {
+    font-weight: 700;
 }
 
 .form-group {
     margin-bottom: 20px;
 }
 
-body {
+.form-control {
     font-size: 17px;
-}
-
-form-control {
-    font-size: 17px;
+    padding: 20px 15px;
     height: 44px;
     -ms-border-radius: 9px;
     border-radius: 9px;
@@ -90,8 +106,8 @@ form-control {
 }
 
 .btn {
-/*    font-size: 17px;
-    padding: 7px 20px;*/
+    font-size: 17px;
+    padding: 7px 20px;
     -ms-border-radius: 9px;
     border-radius: 9px;
 }
@@ -111,6 +127,8 @@ form-control {
     color: white;
     text-align: center;
     width: 60px;
+    -ms-border-radius: 8px;
+    border-radius: 8px;
 }
 
 .gigs > li .date .month {
@@ -120,20 +138,27 @@ form-control {
     padding: 2px 6px;
 }
 
+.gigs > li .date .day {
+    background: #f7f7f7;
+    color: #333;
+    font-size: 20px;
+    padding: 6px 12px;
+}
+
 .gigs > li .details {
     position: absolute;
     top: 0;
     left: 70px;
 }
 
+.gigs > li .details .artist {
+    font-weight: bold;
+    display: block;
+}
 
-
-
-
-
-
-
-
+.gigs > li .details .genre {
+    font-size: 14px;
+}
 
 
 
