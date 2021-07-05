@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Web.Http;
-using GigHub.Dtos;
+﻿using GigHub.Dtos;
 using GigHub.Models;
 using Microsoft.AspNet.Identity;
+using System.Linq;
+using System.Web.Http;
 
 namespace GigHub.Controllers.Api
 {
@@ -35,6 +35,7 @@ namespace GigHub.Controllers.Api
             _db.SaveChanges();
 
             return Ok();
+
         }
     }
 }
