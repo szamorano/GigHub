@@ -22,7 +22,7 @@ namespace GigHub.Controllers.Api
         {
             var userId = User.Identity.GetUserId();
 
-            if (_db.Attendances.Any(a => a.AttendeeId == userId && a.GigId == dto.GidId))
+            if (dto != null && _db.Attendances.Any(a => a.AttendeeId == userId && a.GigId == dto.GidId))
                 return BadRequest("The attendance already exists.");
 
             var attendance = new Attendance
