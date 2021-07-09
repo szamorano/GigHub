@@ -1,5 +1,6 @@
 ﻿using GigHub.Models;
 using Microsoft.AspNet.Identity;
+using System;
 using System.Linq;
 using System.Web.Http;
 
@@ -40,12 +41,7 @@ namespace GigHub.Controllers.Api
 
             foreach (var attendee in attendees)
             {
-                var userNotification = new UserNotification
-                {
-                    User = attendee,
-                    Notification = notification
-                };
-                _db.UserNotifications.Add(userNotification);
+                attendee.Notify(notification);
             }
 
             _db.SaveChanges();
