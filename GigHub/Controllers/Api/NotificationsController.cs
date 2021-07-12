@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
+using GigHub.Dtos;
 using GigHub.Models;
 using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
-using GigHub.Dtos;
 
 namespace GigHub.Controllers.Api
 {
@@ -23,7 +23,7 @@ namespace GigHub.Controllers.Api
         {
             var userId = User.Identity.GetUserId();
             var notifications = _db.UserNotifications
-                .Where(un => un.UserId == userId)
+                .Where(un => un.UserId == userId && !un.IsRead)
                 .Select(un => un.Notification)
                 .Include(n => n.Gig.Artist)
                 .ToList();
