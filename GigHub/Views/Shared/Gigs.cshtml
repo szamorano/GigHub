@@ -84,7 +84,7 @@
                         });
                 } else {
                     $.ajax({
-                            url: "/api/attendances/" + button.Attr("data-gig-id"),
+                            url: "/api/attendances/" + button.attr("data-gig-id"),
                             method: "DELETE"
                         })
                         .done(function() {
