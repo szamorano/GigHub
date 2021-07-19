@@ -7,7 +7,7 @@
 
     var toggleFollowing = function(e) {
         followButton = $(e.target);
-        var followeeId = followButton.Attr("data-user-id");
+        var followeeId = followButton.attr("data-user-id");
 
         if (followButton.hasClass("btn-default"))
             followingService.createFollowing(followeeId, done, fail);
@@ -20,9 +20,9 @@
         followButton.toggleClass("btn-info").toggleClass("btn-default").text(text);
     };
 
-    var fail = function() {
+    var fail = function () {
         alert("Something failed");
-    }
+    };
 
     return {
         init: init
