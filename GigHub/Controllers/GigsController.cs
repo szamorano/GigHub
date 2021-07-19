@@ -128,10 +128,13 @@ namespace GigHub.Controllers
             }
 
 
-            var userId = User.Identity.GetUserId();
-            var gig = _db.Gigs
-                .Include(g => g.Attendances.Select(a => a.Attendee))
-                .Single((g => g.Id == viewModel.Id && g.ArtistId == userId));
+            var gig = _gigRepository.GetGigWithAttendees(viewModel.Id);
+
+            if (gig == null)
+                return HttpNotFound();
+
+            if (gig.ArtistId != User.Identity.GetUserId())
+                return new HttpUnauthorizedResult();
 
             gig.Modify(viewModel.GetDateTime(), viewModel.Venue, viewModel.Genre);
 
@@ -142,7 +145,10 @@ namespace GigHub.Controllers
 
         public ActionResult Details(int id)
         {
-            var gig = _db.Gigs.Include(g => g.Artist).Include(g => g.Genre).SingleOrDefault(g => g.Id == id);
+            var gig = _db.Gigs
+                .Include(g => g.Artist)
+                .Include(g => g.Genre)
+                .SingleOrDefault(g => g.Id == id);
 
             if (gig == null)
                 return HttpNotFound();

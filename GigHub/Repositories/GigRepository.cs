@@ -14,6 +14,13 @@ namespace GigHub.Repositories
             _db = db;
         }
 
+        public Gig GetGigWithAttendees(int gigId)
+        {
+            return _db.Gigs
+                .Include(g => g.Attendances.Select(a => a.Attendee))
+                .SingleOrDefault(g => g.Id == gigId);
+        }
+
         public IEnumerable<Gig> GetGigsUserAttending(string userId)
         {
             return _db.Attendances
