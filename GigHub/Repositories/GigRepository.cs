@@ -48,5 +48,9 @@ namespace GigHub.Repositories
                 .ToList();
         }
 
+        public void Add(Gig gig)
+        {
+            _db.Gigs.Add(gig);
+        }
     }
 }
