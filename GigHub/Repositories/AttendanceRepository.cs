@@ -14,6 +14,12 @@ namespace GigHub.Repositories
             _db = db;
         }
 
+        public bool GetAttendance(int gigId, string userId)
+        {
+            return _db.Attendances.Any(a => a.GigId == gigId && a.AttendeeId == userId);
+        }
+
+
         public IEnumerable<Attendance> GetFutureAttendances(string userId)
         {
             return _db.Attendances
