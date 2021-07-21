@@ -9,13 +9,11 @@ namespace GigHub.Controllers
 {
     public class GigsController : Controller
     {
-        private readonly ApplicationDbContext _db;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public GigsController()
+        public GigsController(IUnitOfWork unitOfWork)
         {
-            _db = new ApplicationDbContext();
-            _unitOfWork = new UnitOfWork(_db);
+            _unitOfWork = unitOfWork;
         }
 
 
